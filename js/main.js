@@ -20,9 +20,9 @@ function showProducts() {
 
         divProd.innerHTML += `<div class="column">
         <div class="content">
-            <img src="${element.imageLink}" alt="Mountains" style="width:100%">
+            <img src="${element.imageLink}" alt="Mountains" style="width:100%" height="180px">
             <h3>${element.description}</h3>
-            <p>${element.price}</p>
+            <p>${element.price} €/Kg</p>
         </div>
     </div>`
     });
