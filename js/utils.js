@@ -2,7 +2,7 @@ function showTypeOfProducts() {
     var typeOfProducts = [];
     var divTypes = document.getElementById('dropdown-types');
 
-    typeOfProducts = ["Apples", "Oranges", "Limons", "Pineapple", "Bananas", "Stramberries"];
+    typeOfProducts = ["Apples", "Oranges", "Lemons", "Pineapple", "Bananas", "Stramberries"];
     divTypes.innerHTML = '';
 
     return typeOfProducts.forEach(element => {
@@ -10,3 +10,4 @@ function showTypeOfProducts() {
         divTypes.innerHTML += '<a href="#">' + element + '</a><br>';
     });
 }
+
