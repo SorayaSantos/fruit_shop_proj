@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="navbar">
+    <div class="navbar" id="myNavbar" style="display: none;">
         <a href="#home">Home</a>
         <a href="#shopping">Shopping Basket</a>
         <div class="dropdown">
@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <div class="main">
+    <div class="main" id="myProducts" style="display: none;">
 
         <div class="row" id="products">
         </div>
@@ -33,6 +33,91 @@
         <button onclick="SignIn()">SignIn</button>
         <button onclick="GetTest()">Test</button>
 
+    </div>
+
+    <div class="container main">
+        <form id="signup" style="display: none;">
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname">Name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="name" name="name" placeholder="Your name..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="username">Username</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="username" name="username" placeholder="Username">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="email">Email</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="email" name="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="password" name="password" placeholder="Password">
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+        <form>
+            <div class="row">
+                <div class="col-25">
+                    <div class="col-25">
+                    </div>
+                    <div class="col-25">
+                        <img src="../images/fruitshop.png" height="100px" width="100px">
+                    </div>
+                </div>
+                <div class="col-75">
+                    <h2 class="logo">Fruit Shop</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <div class="col-25">
+                    </div>
+                    <div class="col-25">
+                        <label for="username2">Username or email</label>
+                    </div>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="username2" name="username2" placeholder="Username">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <div class="col-25">
+                    </div>
+                    <div class="col-25">
+                        <label for="password2">Password</label>
+                    </div>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="password2" name="password2" placeholder="Password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-bt">
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+
+        </form>
+        <button onclick="show()">show</button>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

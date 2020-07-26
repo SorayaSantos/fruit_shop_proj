@@ -1,7 +1,13 @@
 $(document).ready(function () {
-    console.log("ready!");
-    window.location.href = '#shopping';
+
+    // var hideNav = document.getElementById("myNavbar");
+    // var hideProd = document.getElementById("myProducts");
+
+    //$("#myNavbar").hide();
+    //$("#myProducts").hide();
+
     showProducts();
+    console.log("ready!");
 });
 
 function showProducts() {
@@ -27,4 +33,12 @@ function showProducts() {
         </div>
     </div>`
     });
+}
+
+function show() {
+    var hideNav = document.getElementById("myNavbar");
+    var hideProd = document.getElementById("myProducts");
+
+    hideNav.style.display = "block";
+    hideProd.style.display = "block";
 }
