@@ -1,13 +1,8 @@
 $(document).ready(function () {
 
-    // var hideNav = document.getElementById("myNavbar");
-    // var hideProd = document.getElementById("myProducts");
-
-    //$("#myNavbar").hide();
-    //$("#myProducts").hide();
-
-    showProducts();
+    //showProducts();
     console.log("ready!");
+    getAllProducts();
 });
 
 var hideNav = document.getElementById("myNavbar");
@@ -15,14 +10,10 @@ var hideProd = document.getElementById("myProducts");
 var hideSignin = document.getElementById("signin");
 var hideSignup = document.getElementById("signup");
 
-function showProducts() {
+function showProducts(products) {
 
-    product1 = new Product("Apple", "../images/GrannySmith.jpg", "Granny Smith", 2.50);
-    product2 = new Product("Lemon", "../images/Lemon.jpg", "From Portugal", 1.50);
-    product3 = new Product("Pineapple", "../images/Pineapple.jpg", "From Açores", 2.00);
-    product4 = new Product("Orange", "../images/Orange.jpg", "From Algarve", 2.50);
-
-    var products = [product1, product2, product3, product4];
+    console.log("here")
+    console.log(products)
 
     var divProd = document.getElementById('products');
 
@@ -35,6 +26,7 @@ function showProducts() {
             <img src="${element.imageLink}" alt="Mountains" style="width:100%" height="180px">
             <h3>${element.description}</h3>
             <p>${element.price} €/Kg</p>
+            <p>${element.quantity} Kg</p>
         </div>
     </div>`
     });

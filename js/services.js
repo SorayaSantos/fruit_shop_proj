@@ -42,17 +42,17 @@ function signIn() {
     });
 };
 
-function GetTest() {
+function getAllProducts() {
 
     token = window.sessionStorage.getItem("Bearer");
 
     $.ajax({
-        url: "http://localhost:8080/api/product/test",
+        url: "http://localhost:8080/api/product/all",
         type: 'GET',
         contentType: 'application/json',
         headers: { 'Authorization': 'Bearer ' + token },
         success: function (data) {
-            console.log(data);
+            showProducts(data);
         }
     });
 };
