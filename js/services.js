@@ -14,7 +14,6 @@ function signUp() {
         contentType: 'application/json',
         data: JSON.stringify(request),
         success: function (data) {
-            console.log(data);
             showLogin();
         }
     });
@@ -33,8 +32,8 @@ function signIn() {
         contentType: 'application/json',
         data: JSON.stringify(request),
         success: function (data) {
-            console.log(data);
             window.sessionStorage.setItem("Bearer", data.accessToken);
+            getAllProducts();
             showPageProducts();
             document.getElementById("username2").value = '';
             document.getElementById("password2").value = '';
@@ -53,6 +52,23 @@ function getAllProducts() {
         headers: { 'Authorization': 'Bearer ' + token },
         success: function (data) {
             showProducts(data);
+        }
+    });
+};
+
+function addProductToBasket(productId, quantity) {
+
+    var request = { productId, quantity };
+
+    $.ajax({
+        url: "http://localhost:8080/api/user/addproductobasket",
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(request),
+        headers: { 'Authorization': 'Bearer ' + token },
+        success: function (data) {
+            document.getElementById("quant").value = null;
+            modal.style.display = "none";
         }
     });
 };

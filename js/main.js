@@ -2,13 +2,17 @@ $(document).ready(function () {
 
     //showProducts();
     console.log("ready!");
-    getAllProducts();
 });
 
 var hideNav = document.getElementById("myNavbar");
 var hideProd = document.getElementById("myProducts");
 var hideSignin = document.getElementById("signin");
 var hideSignup = document.getElementById("signup");
+
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+
+var selectedProduct = null;
 
 function showProducts(products) {
 
@@ -27,6 +31,7 @@ function showProducts(products) {
             <h3>${element.description}</h3>
             <p>${element.price} €/Kg</p>
             <p>${element.quantity} Kg</p>
+            <button type="button" onclick="addProductToBasketQuant('`+ element.id + `')">Add product to basket</button>
         </div>
     </div>`
     });
@@ -60,4 +65,30 @@ function showSignup() {
 function signout() {
     window.sessionStorage.removeItem("Bearer");
     showLogin();
+}
+
+function addProductToBasketQuant(productId) {
+    modal.style.display = "block";
+
+    selectedProduct = productId;
+}
+
+span.onclick = function () {
+    modal.style.display = "none";
+    document.getElementById("quant").value = null;
+}
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        document.getElementById("quant").value = null;
+    }
+}
+
+function addQuant() {
+    var quant = $("#quant").val();
+
+    if (quant != null && selectedProduct != null) {
+        addProductToBasket(selectedProduct, quant)
+    }
 }
