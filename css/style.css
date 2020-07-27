@@ -142,8 +142,19 @@ body {
     display: inline-block;
   }
   
-  input[type=submit] {
+  .signin-bt {
     background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 40%;
+    padding-top: 10px;
+  }
+
+  .signup-bt {
+    background-color: rgb(6, 58, 153);
     color: white;
     padding: 12px 20px;
     border: none;

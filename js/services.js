@@ -1,9 +1,10 @@
 
-function SignUp() {
-    var name = "test1"
-    var username = "test1";
-    var email = "test@email";
-    var password = "test1";
+function signUp() {
+
+    var name = $("#name").val();
+    var username = $("#username").val();
+    var email = $("#email").val();
+    var password = $("#password").val();
 
     var request = { name, username, email, password };
 
@@ -14,14 +15,15 @@ function SignUp() {
         data: JSON.stringify(request),
         success: function (data) {
             console.log(data);
+            showLogin();
         }
     });
 };
 
-function SignIn() {
+function signIn() {
 
-    var usernameOrEmail = "test1";
-    var password = "test1";
+    var usernameOrEmail = $("#username2").val();
+    var password = $("#password2").val();
 
     var request = { usernameOrEmail, password };
 
@@ -32,7 +34,10 @@ function SignIn() {
         data: JSON.stringify(request),
         success: function (data) {
             console.log(data);
-            window.sessionStorage.setItem("Bearer", data.accessToken)
+            window.sessionStorage.setItem("Bearer", data.accessToken);
+            showPageProducts();
+            document.getElementById("username2").value = '';
+            document.getElementById("password2").value = '';
         }
     });
 };
@@ -51,3 +56,4 @@ function GetTest() {
         }
     });
 };
+

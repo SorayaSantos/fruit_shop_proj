@@ -10,6 +10,11 @@ $(document).ready(function () {
     console.log("ready!");
 });
 
+var hideNav = document.getElementById("myNavbar");
+var hideProd = document.getElementById("myProducts");
+var hideSignin = document.getElementById("signin");
+var hideSignup = document.getElementById("signup");
+
 function showProducts() {
 
     product1 = new Product("Apple", "../images/GrannySmith.jpg", "Granny Smith", 2.50);
@@ -35,10 +40,32 @@ function showProducts() {
     });
 }
 
-function show() {
-    var hideNav = document.getElementById("myNavbar");
-    var hideProd = document.getElementById("myProducts");
-
+function showPageProducts() {
     hideNav.style.display = "block";
     hideProd.style.display = "block";
+    hideSignin.style.display = "none";
+    hideSignup.style.display = "none";
+}
+
+function showLogin() {
+    hideNav.style.display = "none";
+    hideProd.style.display = "none";
+    hideSignin.style.display = "block";
+    hideSignup.style.display = "none";
+    document.getElementById("name").value = '';
+    document.getElementById("username").value = '';
+    document.getElementById("email").value = '';
+    document.getElementById("password").value = '';
+}
+
+function showSignup() {
+    hideSignup.style.display = "block";
+    hideSignin.style.display = "none";
+    document.getElementById("username2").value = '';
+    document.getElementById("password2").value = '';
+}
+
+function signout() {
+    window.sessionStorage.removeItem("Bearer");
+    showLogin();
 }
