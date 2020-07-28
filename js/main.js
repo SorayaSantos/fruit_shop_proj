@@ -2,6 +2,8 @@ $(document).ready(function () {
 
     //showProducts();
     console.log("ready!");
+    var img = document.querySelector('img') + new Date().getTime();
+
 });
 
 var hideNav = document.getElementById("myNavbar");
@@ -10,6 +12,7 @@ var hideSignin = document.getElementById("signin");
 var hideSignup = document.getElementById("signup");
 var hideBasket = document.getElementById("basket-products");
 var hidePurchase = document.getElementById("purchase");
+var hideAddProd = document.getElementById("hideAddProd");
 
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
@@ -33,7 +36,13 @@ function showProducts(products) {
             <button type="button" onclick="addProductToBasketQuant('`+ element.id + `')">Add product to basket</button>
         </div>
     </div>`
+
+        if (products.indexOf(element) == products.length - 1) {
+            divProd.innerHTML += `<button class="add-prod-bt" type="button" onclick="newProduct()">Create new Product</button>`
+        }
     });
+
+
 }
 
 function showPageProducts() {
@@ -43,6 +52,8 @@ function showPageProducts() {
     hideSignup.style.display = "none";
     hideBasket.style.display = "none";
     hidePurchase.style.display = "none";
+    hideAddProd.style.display = "none";
+
 }
 
 function showLogin() {
@@ -52,6 +63,7 @@ function showLogin() {
     hideSignup.style.display = "none";
     hideBasket.style.display = "none";
     hidePurchase.style.display = "none";
+    hideAddProd.style.display = "none";
 
     document.getElementById("name").value = '';
     document.getElementById("username").value = '';
@@ -64,6 +76,7 @@ function showSignup() {
     hideSignin.style.display = "none";
     hideBasket.style.display = "none";
     hidePurchase.style.display = "none";
+    hideAddProd.style.display = "none";
 
     document.getElementById("username2").value = '';
     document.getElementById("password2").value = '';
@@ -107,6 +120,7 @@ function showShoppingBasket() {
     hideSignin.style.display = "none";
     hideSignup.style.display = "none";
     hideBasket.style.display = "block";
+    hideAddProd.style.display = "none";
 
     getAllBasketProducts();
 }
@@ -140,4 +154,23 @@ function getTableShoppingBasket(basketproducts) {
           </tr>`)
         }
     }
+}
+
+window.addEventListener('load', function () {
+    document.querySelector('input[type="file"]').addEventListener('change', function () {
+        if (this.files && this.files[0]) {
+            var img = document.querySelector('img');
+            // $('img')[0]
+            img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+
+            console.log(img.src)
+            $("#newProduct").append(`<img id="myImg" src="` + img.src + `" alt="your image" height="100px" width="100px">`)
+        }
+    });
+
+});
+
+function newProduct() {
+    hideAddProd.style.display = "block";
+    hideProd.style.display = "none";
 }

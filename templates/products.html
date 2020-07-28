@@ -179,6 +179,67 @@
         <div class="col-bt">
             <button id="purchase">Make purchase</button>
         </div>
+
+        <form id="hideAddProd" style="display: none;">
+            <div class="row">
+                <div class="col-25">
+                    <div class="col-25">
+                    </div>
+                    <div class="col-25">
+                        <label for="prodname">Product name: </label>
+                    </div>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="prodname" name="prodname" placeholder="Product name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <div class="col-25">
+                    </div>
+                    <div class="col-25">
+                        <label for="prodDesc">Product description: </label>
+                    </div>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="prodDesc" name="prodDesc" placeholder="Product description">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <div class="col-25">
+                    </div>
+                    <div class="col-25">
+                        <label for="prodQuant">Quantity: </label>
+                    </div>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="prodQuant" name="prodQuant" placeholder="Product quantity">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <div class="col-25">
+                    </div>
+                    <div class="col-25">
+                        <label for="prodPrice">Price: </label>
+                    </div>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="prodPrice" name="prodPrice" placeholder="Product price">
+                </div>
+            </div>
+            <div class="row">
+                <div id="newProduct" class="col-bt">
+                    <input type='file' />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-bt">
+                    <button class="signin-bt" type="button" onclick="newProd()">Save product</button>
+                </div>
+            </div>
+        </form>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

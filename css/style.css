@@ -287,3 +287,13 @@ th, td {
   border: 2px solid #e7e7e7;
 }
 
+.add-prod-bt {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  padding-top: 10px;
+}
