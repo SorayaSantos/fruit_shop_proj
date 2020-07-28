@@ -2,7 +2,6 @@ $(document).ready(function () {
 
     //showProducts();
     console.log("ready!");
-    var img = document.querySelector('img') + new Date().getTime();
 
 });
 
@@ -17,6 +16,8 @@ var hideAddProd = document.getElementById("hideAddProd");
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
 
+var selectedImage = null;
+
 var selectedProduct = null;
 
 function showProducts(products) {
@@ -25,22 +26,27 @@ function showProducts(products) {
 
     divProd.innerHTML = '';
 
-    return products.forEach(element => {
+    if (products.length > 0) {
+        return products.forEach(element => {
 
-        divProd.innerHTML += `<div class="column">
-        <div class="content">
-            <img src="${element.imageLink}" alt="Mountains" style="width:100%" height="180px">
-            <h3>${element.description}</h3>
-            <p>${element.price} €/Kg</p>
-            <p>${element.quantity} Kg</p>
-            <button type="button" onclick="addProductToBasketQuant('`+ element.id + `')">Add product to basket</button>
-        </div>
-    </div>`
+            divProd.innerHTML += `<div class="column">
+            <div class="content">
+                <img src="${element.image}" alt="Mountains" style="width:100%" height="180px">
+                <h3>${element.description}</h3>
+                <p>${element.price} €/Kg</p>
+                <p>${element.quantity} Kg</p>
+                <button type="button" onclick="addProductToBasketQuant('`+ element.id + `')">Add product to basket</button>
+            </div>
+        </div>`
 
-        if (products.indexOf(element) == products.length - 1) {
-            divProd.innerHTML += `<button class="add-prod-bt" type="button" onclick="newProduct()">Create new Product</button>`
-        }
-    });
+            if (products.indexOf(element) == products.length - 1) {
+                divProd.innerHTML += `<button class="add-prod-bt" type="button" onclick="newProduct()">Create new Product</button>`;
+            }
+        });
+    } else {
+        return divProd.innerHTML += `<button class="add-prod-bt" type="button" onclick="newProduct()">Create new Product</button>`;
+    }
+
 
 
 }
@@ -163,7 +169,8 @@ window.addEventListener('load', function () {
             // $('img')[0]
             img.src = URL.createObjectURL(this.files[0]); // set src to blob url
 
-            console.log(img.src)
+            selectedImage = img.src;
+
             $("#newProduct").append(`<img id="myImg" src="` + img.src + `" alt="your image" height="100px" width="100px">`)
         }
     });
@@ -173,4 +180,5 @@ window.addEventListener('load', function () {
 function newProduct() {
     hideAddProd.style.display = "block";
     hideProd.style.display = "none";
+
 }

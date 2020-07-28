@@ -1,7 +1,7 @@
 class Product {
-    constructor(typeOfProduct, imageLink, description, price, quantity) {
-        this.typeOfProduct = typeOfProduct;
-        this.imageLink = imageLink;
+    constructor(name, image, description, price, quantity) {
+        this.name = name;
+        this.image = image;
         this.description = description;
         this.price = price;
         this.quantity = quantity;

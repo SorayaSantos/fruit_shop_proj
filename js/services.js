@@ -87,3 +87,29 @@ function getAllBasketProducts() {
         }
     });
 };
+
+function postProduct() {
+
+    var name = $("#prodname").val();
+    var description = $("#prodDesc").val();
+    var price = $("#prodQuant").val();
+    var quantity = $("#prodPrice").val();
+    var image = selectedImage;
+
+    product = new Product(name, image, description, price, quantity);
+    console.log(product);
+
+    var request = { product };
+
+    $.ajax({
+        url: "http://localhost:8080/api/product/newproduct",
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(request),
+        headers: { 'Authorization': 'Bearer ' + token },
+        success: function (data) {
+            document.getElementById("quant").value = null;
+            modal.style.display = "none";
+        }
+    });
+};
