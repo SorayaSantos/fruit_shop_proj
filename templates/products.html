@@ -15,14 +15,15 @@
 <body>
     <div class="navbar" id="myNavbar" style="display: none;">
         <a href="#home">Home</a>
-        <a href="#shopping">Shopping Basket</a>
-        <div class="dropdown">
-            <button class="dropbtn" onclick="showTypeOfProducts()">Products
+        <a href="#shopping" onclick="showShoppingBasket()">Shopping Basket</a>
+        <!-- <div class="dropdown">
+            <button class="dropbtn" onclick="showPageProducts()">Products
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content" id="dropdown-types">
             </div>
-        </div>
+        </div> -->
+        <a href="#shopping" onclick="showPageProducts()">Products</a>
         <a href="#logout" style="float: right;" onclick="signout()">Logout</a>
     </div>
     <div class="main" id="myProducts" style="display: none;">
@@ -161,6 +162,22 @@
                 <button onclick="addQuant()">select</button>
             </div>
 
+        </div>
+
+        <table class="table" id="basket-products" style="display: none; overflow-x:auto;">
+            <thead>
+                <br><br>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity (Kg)</th>
+                    <th>price (€/Kg)</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="col-bt">
+            <button id="purchase">Make purchase</button>
         </div>
     </div>
 

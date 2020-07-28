@@ -9,5 +9,6 @@ function showTypeOfProducts() {
 
         divTypes.innerHTML += '<a href="#">' + element + '</a><br>';
     });
+
 }
 

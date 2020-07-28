@@ -73,3 +73,17 @@ function addProductToBasket(productId, quantity) {
     });
 };
 
+function getAllBasketProducts() {
+
+    token = window.sessionStorage.getItem("Bearer");
+
+    $.ajax({
+        url: "http://localhost:8080/api/user/getbasketproducts",
+        type: 'GET',
+        contentType: 'application/json',
+        headers: { 'Authorization': 'Bearer ' + token },
+        success: function (data) {
+            getTableShoppingBasket(data.basketProducts);
+        }
+    });
+};
