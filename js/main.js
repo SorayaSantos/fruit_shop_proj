@@ -163,7 +163,12 @@ function getTableShoppingBasket(basketproducts) {
 }
 
 window.addEventListener('load', function () {
+
+    $("#myImg").remove();
+
     document.querySelector('input[type="file"]').addEventListener('change', function () {
+        $("#myImg").remove();
+
         if (this.files && this.files[0]) {
             var img = document.querySelector('img');
             // $('img')[0]
@@ -181,4 +186,21 @@ function newProduct() {
     hideAddProd.style.display = "block";
     hideProd.style.display = "none";
 
+}
+
+/******************for base 64 *****************************/
+function uploadFile(inputElement) {
+    var file = inputElement.files[0];
+    var reader = new FileReader();
+    reader.onloadend = function () {
+        //console.log('Encoded Base 64 File String:', reader.result);
+
+        selectedImage = reader.result;
+
+        /******************* for Binary ***********************/
+        var data = (reader.result).split(',')[1];
+        var binaryBlob = atob(data);
+        //console.log('Encoded Binary File String:', binaryBlob);
+    }
+    reader.readAsDataURL(file);
 }

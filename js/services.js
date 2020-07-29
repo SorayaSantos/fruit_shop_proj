@@ -110,6 +110,13 @@ function postProduct() {
         success: function (data) {
             document.getElementById("quant").value = null;
             modal.style.display = "none";
+            getAllProducts();
+            showPageProducts();
+            document.getElementById("prodname").value = '';
+            document.getElementById("prodDesc").value = '';
+            document.getElementById("prodQuant").value = null;
+            document.getElementById("prodPrice").value = null;
+            selectedImage = null;
         }
     });
 };
