@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-    //showProducts();
     console.log("ready!");
 
 });
@@ -17,12 +16,14 @@ var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
 
 var selectedImage = null;
-
 var selectedProduct = null;
+var productsList;
+var selectedID = null;
 
 function showProducts(products) {
 
     var divProd = document.getElementById('products');
+    productsList = products;
 
     divProd.innerHTML = '';
 
@@ -36,6 +37,7 @@ function showProducts(products) {
                 <p>${element.price} €/Kg</p>
                 <p>${element.quantity} Kg</p>
                 <button type="button" onclick="addProductToBasketQuant('`+ element.id + `')">Add product to basket</button>
+                <button type="button" onclick="editProduct('`+ element.id + `')">Edit product</button>
             </div>
         </div>`
 
@@ -185,7 +187,6 @@ window.addEventListener('load', function () {
 function newProduct() {
     hideAddProd.style.display = "block";
     hideProd.style.display = "none";
-
 }
 
 /******************for base 64 *****************************/
@@ -203,4 +204,19 @@ function uploadFile(inputElement) {
         //console.log('Encoded Binary File String:', binaryBlob);
     }
     reader.readAsDataURL(file);
+}
+
+function editProduct(id) {
+    hideAddProd.style.display = "block";
+    hideProd.style.display = "none";
+
+    productsList.filter(prod => { prod.id == id });
+
+    document.getElementById("prodname").value = productsList[0].name;
+    document.getElementById("prodDesc").value = productsList[0].description;
+    document.getElementById("prodQuant").value = productsList[0].quantity;
+    document.getElementById("prodPrice").value = productsList[0].price;
+
+    selectedID = id;
+
 }

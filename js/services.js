@@ -92,17 +92,20 @@ function postProduct() {
 
     var name = $("#prodname").val();
     var description = $("#prodDesc").val();
-    var price = $("#prodQuant").val();
-    var quantity = $("#prodPrice").val();
+    var quantity = $("#prodQuant").val();
+    var price = $("#prodPrice").val();
     var image = selectedImage;
 
-    product = new Product(name, image, description, price, quantity);
-    console.log(product);
-
+    if (selectedID != null) {
+        product = new Product(selectedID, name, image, description, price, quantity);
+    }
+    else {
+        product = new Product(null, name, image, description, price, quantity);
+    }
     var request = { product };
 
     $.ajax({
-        url: "http://localhost:8080/api/product/newproduct",
+        url: "http://localhost:8080/api/product/saveproduct",
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(request),
@@ -117,6 +120,7 @@ function postProduct() {
             document.getElementById("prodQuant").value = null;
             document.getElementById("prodPrice").value = null;
             selectedImage = null;
+            selectedID = null;
         }
     });
 };
