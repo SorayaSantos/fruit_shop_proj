@@ -170,3 +170,18 @@ function postProductSell(basketProducts) {
         }
     });
 };
+
+function getAllSells() {
+
+    token = window.sessionStorage.getItem("Bearer");
+
+    $.ajax({
+        url: "http://localhost:8080/api/sell/all",
+        type: 'GET',
+        contentType: 'application/json',
+        headers: { 'Authorization': 'Bearer ' + token },
+        success: function (data) {
+            getTableSells(data.sells);
+        }
+    });
+};

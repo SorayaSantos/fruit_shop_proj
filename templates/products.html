@@ -24,6 +24,7 @@
             </div>
         </div> -->
         <a href="#shopping" onclick="getAllProducts()">Products</a>
+        <a href="#shopping" onclick="showSells()">Sells</a>
         <a href="#logout" style="float: right;" onclick="signout()">Logout</a>
     </div>
     <div class="main" id="myProducts" style="display: none;">
@@ -247,6 +248,16 @@
             </div>
         </form>
 
+        <table class="table" id="sells" style="display: none; overflow-x:auto;">
+            <thead>
+                <br><br>
+                <tr>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

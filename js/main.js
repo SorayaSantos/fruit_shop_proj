@@ -12,6 +12,7 @@ var hideBasket = document.getElementById("basket-products");
 var hidePurchase = document.getElementById("purchase");
 var hideAddProd = document.getElementById("hideAddProd");
 var hideOnEdit = document.getElementById("on-edit");
+var hideSell = document.getElementById("sells");
 
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
@@ -64,6 +65,8 @@ function showPageProducts() {
     hidePurchase.style.display = "none";
     hideAddProd.style.display = "none";
     hideOnEdit.style.display = "none";
+    hideSell.style.display = "none";
+
 
     document.getElementById("prodname").value = '';
     document.getElementById("prodDesc").value = '';
@@ -83,6 +86,7 @@ function showLogin() {
     hidePurchase.style.display = "none";
     hideAddProd.style.display = "none";
     hideOnEdit.style.display = "none";
+    hideSell.style.display = "none";
 
 
     document.getElementById("name").value = '';
@@ -98,6 +102,7 @@ function showSignup() {
     hidePurchase.style.display = "none";
     hideAddProd.style.display = "none";
     hideOnEdit.style.display = "none";
+    hideSell.style.display = "none";
 
     document.getElementById("username2").value = '';
     document.getElementById("password2").value = '';
@@ -142,6 +147,7 @@ function showShoppingBasket() {
     hideSignup.style.display = "none";
     hideBasket.style.display = "block";
     hideAddProd.style.display = "none";
+    hideSell.style.display = "none";
 
     getAllBasketProducts();
 }
@@ -246,5 +252,31 @@ function saveSell() {
 
     if (userBasketproducts != null) {
         postProductSell(userBasketproducts)
+    }
+}
+
+function showSells() {
+
+    hideNav.style.display = "block";
+    hideProd.style.display = "none";
+    hideSignin.style.display = "none";
+    hideSignup.style.display = "none";
+    hideBasket.style.display = "none";
+    hidePurchase.style.display = "none";
+    hideAddProd.style.display = "none";
+    hideOnEdit.style.display = "none";
+    hideSell.style.display = "block";
+
+    getAllSells();
+}
+
+function getTableSells(sells) {
+    $("#sells td").remove();
+
+    for (let index = 0; index < sells.length; index++) {
+
+        $("#sells").append(`<tr>
+            <td><strong>`+ sells[index].total + `</strong></td>
+          </tr>`)
     }
 }
