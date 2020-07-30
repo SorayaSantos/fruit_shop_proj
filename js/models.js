@@ -8,9 +8,3 @@ class Product {
         this.quantity = quantity;
     }
 }
-
-class TypeOfProduct {
-    constructor(name) {
-        this.name = name;
-    }
-}
