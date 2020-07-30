@@ -153,3 +153,20 @@ function deleteProduct() {
         }
     });
 };
+
+function postProductSell(basketProducts) {
+
+    var request = { basketProducts };
+
+    $.ajax({
+        url: "http://localhost:8080/api/productsell/saveproductsell",
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(request),
+        headers: { 'Authorization': 'Bearer ' + token },
+        success: function (data) {
+            getAllProducts();
+            showPageProducts();
+        }
+    });
+};

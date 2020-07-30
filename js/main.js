@@ -20,6 +20,7 @@ var selectedImage = null;
 var selectedProduct = null;
 var productsList;
 var selectedID = null;
+var userBasketproducts;
 
 function showProducts(products) {
 
@@ -152,6 +153,7 @@ function getTableShoppingBasket(basketproducts) {
     }
 
     var count = 0;
+    userBasketproducts = basketproducts;
 
     $("#basket-products td").remove();
 
@@ -238,4 +240,11 @@ function editProduct(id) {
 
     selectedID = id;
 
+}
+
+function saveSell() {
+
+    if (userBasketproducts != null) {
+        postProductSell(userBasketproducts)
+    }
 }
