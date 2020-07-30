@@ -51,6 +51,7 @@ function getAllProducts() {
         contentType: 'application/json',
         headers: { 'Authorization': 'Bearer ' + token },
         success: function (data) {
+            showPageProducts();
             showProducts(data);
         }
     });

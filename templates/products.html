@@ -23,7 +23,7 @@
             <div class="dropdown-content" id="dropdown-types">
             </div>
         </div> -->
-        <a href="#shopping" onclick="showPageProducts()">Products</a>
+        <a href="#shopping" onclick="getAllProducts()">Products</a>
         <a href="#logout" style="float: right;" onclick="signout()">Logout</a>
     </div>
     <div class="main" id="myProducts" style="display: none;">
@@ -214,7 +214,7 @@
                     </div>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="prodQuant" name="prodQuant" placeholder="Product quantity">
+                    <input type="number" step=".01" id="prodQuant" name="prodQuant" placeholder="Product quantity">
                 </div>
             </div>
             <div class="row">
@@ -226,7 +226,7 @@
                     </div>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="prodPrice" name="prodPrice" placeholder="Product price">
+                    <input type="number" step=".01" id="prodPrice" name="prodPrice" placeholder="Product price">
                 </div>
             </div>
             <div class="row">

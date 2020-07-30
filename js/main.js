@@ -64,6 +64,13 @@ function showPageProducts() {
     hideAddProd.style.display = "none";
     hideOnEdit.style.display = "none";
 
+    document.getElementById("prodname").value = '';
+    document.getElementById("prodDesc").value = '';
+    document.getElementById("prodQuant").value = null;
+    document.getElementById("prodPrice").value = null;
+    selectedImage = null;
+    selectedID = null;
+
 }
 
 function showLogin() {
@@ -212,16 +219,22 @@ function uploadFile(inputElement) {
 }
 
 function editProduct(id) {
+
     hideAddProd.style.display = "block";
     hideProd.style.display = "none";
     hideOnEdit.style.display = "block";
 
-    productsList.filter(prod => { prod.id == id });
+    // console.log(productsList)
+    // console.log(id)
 
-    document.getElementById("prodname").value = productsList[0].name;
-    document.getElementById("prodDesc").value = productsList[0].description;
-    document.getElementById("prodQuant").value = productsList[0].quantity;
-    document.getElementById("prodPrice").value = productsList[0].price;
+    productsList.filter(prod => {
+        if (prod.id == id) {
+            document.getElementById("prodname").value = prod.name;
+            document.getElementById("prodDesc").value = prod.description;
+            document.getElementById("prodQuant").value = prod.quantity;
+            document.getElementById("prodPrice").value = prod.price;
+        }
+    });
 
     selectedID = id;
 
