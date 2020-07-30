@@ -11,6 +11,7 @@ var hideSignup = document.getElementById("signup");
 var hideBasket = document.getElementById("basket-products");
 var hidePurchase = document.getElementById("purchase");
 var hideAddProd = document.getElementById("hideAddProd");
+var hideOnEdit = document.getElementById("on-edit");
 
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
@@ -61,6 +62,7 @@ function showPageProducts() {
     hideBasket.style.display = "none";
     hidePurchase.style.display = "none";
     hideAddProd.style.display = "none";
+    hideOnEdit.style.display = "none";
 
 }
 
@@ -72,6 +74,8 @@ function showLogin() {
     hideBasket.style.display = "none";
     hidePurchase.style.display = "none";
     hideAddProd.style.display = "none";
+    hideOnEdit.style.display = "none";
+
 
     document.getElementById("name").value = '';
     document.getElementById("username").value = '';
@@ -85,6 +89,7 @@ function showSignup() {
     hideBasket.style.display = "none";
     hidePurchase.style.display = "none";
     hideAddProd.style.display = "none";
+    hideOnEdit.style.display = "none";
 
     document.getElementById("username2").value = '';
     document.getElementById("password2").value = '';
@@ -209,6 +214,7 @@ function uploadFile(inputElement) {
 function editProduct(id) {
     hideAddProd.style.display = "block";
     hideProd.style.display = "none";
+    hideOnEdit.style.display = "block";
 
     productsList.filter(prod => { prod.id == id });
 

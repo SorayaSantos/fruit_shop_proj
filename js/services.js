@@ -124,3 +124,31 @@ function postProduct() {
         }
     });
 };
+
+function deleteProduct() {
+
+    var id = parseInt(selectedID);
+
+    var request = { id };
+
+    $.ajax({
+        url: "http://localhost:8080/api/product/deleteproduct",
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(request),
+        headers: { 'Authorization': 'Bearer ' + token },
+        success: function (data) {
+            document.getElementById("quant").value = null;
+            modal.style.display = "none";
+            getAllProducts();
+            showPageProducts();
+            document.getElementById("prodname").value = '';
+            document.getElementById("prodDesc").value = '';
+            document.getElementById("prodQuant").value = null;
+            document.getElementById("prodPrice").value = null;
+            selectedImage = null;
+            selectedID = null;
+            hideOnEdit.style.display = "block";
+        }
+    });
+};

@@ -297,3 +297,7 @@ th, td {
   width: 100%;
   padding-top: 10px;
 }
+
+#on-edit{
+  display: none;
+}
